@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/Header.css";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/Logo.jpg";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false); // shrink
