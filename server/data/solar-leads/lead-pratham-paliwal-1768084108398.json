@@ -1,0 +1,39 @@
+{
+  "createdAt": "2026-01-10T22:28:28.398Z",
+  "timestamp": "2026-01-10T22:28:28.369Z",
+  "mode": "res",
+  "residential": {
+    "location": "s",
+    "usage": {
+      "inputType": "bill",
+      "monthlyKwh": null,
+      "monthlyBill": 180,
+      "ratePerKwh": 0.13,
+      "derivedMonthlyKwh": 1384.6153846153845
+    },
+    "assumptions": {
+      "peakSunHours": 3.5,
+      "performanceRatio": 0.8,
+      "panelWatt": 400,
+      "costPerWatt": 2.75,
+      "warrantyYears": 25,
+      "panelAreaM2": 2
+    },
+    "customerName": "asd ",
+    "results": {
+      "annualKwh": 16615.384615384613,
+      "systemKw": 16.257714887851872,
+      "panelCount": 31,
+      "neededArea": 62,
+      "estimatedPrice": 44708.71594159265,
+      "estimatedRebate": 4470.871594159265
+    }
+  },
+  "commercial": null,
+  "contact": {
+    "fullName": "Pratham Paliwal",
+    "phone": "2508010883",
+    "email": "findpratham@gmail.com",
+    "message": ""
+  }
+}

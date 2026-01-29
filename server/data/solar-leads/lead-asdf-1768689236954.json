@@ -1,0 +1,15 @@
+{
+  "createdAt": "2026-01-17T22:33:56.954Z",
+  "timestamp": "2026-01-17T22:33:56.879Z",
+  "mode": "com",
+  "residential": null,
+  "commercial": {
+    "motivation": "Meet ESG Targets Without Disrupting Operations"
+  },
+  "contact": {
+    "fullName": "asdf",
+    "phone": "asd",
+    "email": "q2we",
+    "message": "qwaedewq"
+  }
+}

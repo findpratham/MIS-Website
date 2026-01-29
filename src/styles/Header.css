@@ -1,0 +1,391 @@
+/* 
+-----------------------------------------------------------------------------------------------
+************************************ HEADER STYLING ************************************
+-----------------------------------------------------------------------------------------------
+*/
+
+/* Make sizing predictable */
+* {
+    box-sizing: border-box;
+  }
+/* HEADER LOGO, SPLIT INTO 2 IMAGES */
+.tablogo-img {
+    width: 6rem;           /* about 40px; tweak as needed */
+    height: auto;            /* preserve aspect ratio */
+    object-fit: contain;     /* ensure it isn’t distorted */
+    margin-right: 0rem;      /* space between logo and nav */
+    margin-left: 1rem;
+    cursor: pointer;         /* hint it’s clickable if it links home */
+    display: flex;
+    align-items: center;   /* vertically center if they differ in height */
+    gap: 0.75rem;          /* space between them */
+    margin-top: 3rem;
+  }
+  
+  .tablogo_text-img {
+    width: 6.8rem;           /* about 40px; tweak as needed */
+    object-fit: contain;     /* ensure it isn’t distorted */
+    margin-right: 1%;      /* space between logo and nav */
+    margin-left: 0.1rem;
+    cursor: pointer;         /* hint it’s clickable if it links home */
+    display: flex;
+    align-items: center;   /* vertically center if they differ in height */
+    gap: 0.75rem;          /* space between them */
+  }
+ 
+  .header-container {
+    overflow-x: clip;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6rem;
+    padding: 1rem 2rem;
+  
+    background: transparent !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease, height 0.6s ease;
+    transform-origin: top center;
+    z-index: 9000;
+    margin-top: -0.8rem !important;
+
+  }
+  
+
+  .header-light .nav-links a { color: #000000 !important; }
+  .header-light .bar { background: #fff; }
+  
+  .header-dark {
+    background: rgb(255, 255, 255) !important;
+    backdrop-filter: none;
+  }
+  .header-dark .nav-links a { color: rgb(0, 0, 0) !important; }
+  .header-dark .nav-links a:hover { color: rgb(0, 0, 0) !important; }
+  .header-dark .bar { background: rgba(0, 0, 0, 0.495); }
+  
+.header-dark .menu-toggle .bar { background-color: rgba(0,0,0,0.7); }
+
+  
+  .header-container,
+.nav-links a,
+.menu-toggle .bar {
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+
+  /* ------- SCROLLED STATE (after 300px) ------- */
+  .header-container.scrolled {
+    height: 4.2rem;       /* 7rem × 0.6 = 4.2rem (40% shorter) */
+    padding: 0.1rem 1.3rem; /* reduce padding proportionally */
+  
+  
+  }
+  
+  /* Shrink logos */
+  .header-container.scrolled .tablogo-img {
+    width: 3rem;          /* from 4.5rem down to 3rem */
+    margin-top: 10px !important;
+  }
+  .header-container.scrolled .tablogo_text-img {
+    width: 20rem;         /* from 27rem down to 20rem */
+  }
+  
+  /* Shrink nav font */
+  .header-container.scrolled .nav-links a {
+    font-size: 1.2rem;    /* from 1.5rem down to 1.2rem */
+ 
+
+  }
+  
+  .nav-links {
+    margin-left: auto;  /* pushes the entire nav block to the right */
+    margin-top: 10px !important;
+  }
+  
+  /* Navigation list */
+  .nav-links ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin-left: 1.2rem;
+  }
+  
+  /* Navigation link styles */
+  .nav-links a {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    font-weight: 400 !important;
+    font-size: 1.5rem !important;
+    color: #000000 !important;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Header theme variations */
+  .header-dark .nav-links a {
+    color: black;
+  }
+  
+  .header-light {
+    background-color: #ffffff;
+  }
+  
+  .header-light .nav-links a {
+    color: white;
+  }
+  
+  /* Underline grow on hover */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(255, 111, 0);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: rgb(255, 111, 0);
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
+  /* DROPDOWN CSS */
+  
+  /* Container for nav item */
+  .nav-item {
+    position: relative;
+  }
+  
+  /* Hidden dropdown menu by default */
+  .nav-item .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.38);
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+    
+  }
+  
+  /* Each item inside dropdown */
+  .nav-item .dropdown li {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+  
+  .nav-item .dropdown li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    
+  }
+  
+  /* Show dropdown on hover */
+  .nav-item:hover .dropdown {
+    display: block;
+  }
+  
+  .nav-links .dropdown a:hover {
+    color: rgb(255, 111, 0);
+  }
+  
+  .dropdown a {
+    font-size: 1rem;  /* You can also use px like 16px */
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* 
+  -----------------------------------------------------------------------------------------------
+  MEDIA QUERRIES HEADER:
+  -----------------------------------------------------------------------------------------------
+  */
+  
+  @media only screen and (max-width: 450px) {
+    /* HEADER container */
+    .header-container {
+      position: absolute;
+      height: 4.3rem;
+      padding: 0.5rem 1rem;
+      justify-content: space-between;
+    }
+  
+    .header-container.scrolled {
+      height: 3.4rem;
+      padding: 0rem 1rem;
+    }
+  
+    /* LOGOS */
+    .logo{
+      gap:0.8rem;
+    }
+    .tablogo-img {
+      width: 2.5rem;
+      margin-left: 0;
+    }
+  
+    .tablogo_text-img {
+      width: 18rem;
+      margin-left: 0rem !important;
+    }
+  
+    .header-container.scrolled .tablogo-img {
+      width: 1rem;
+    }
+  
+    .header-container.scrolled .tablogo_text-img {
+      width: 7.5rem;
+    }
+  
+    /* Hamburger container */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      padding: 0;
+      z-index: 10001;
+      cursor: pointer;
+    }
+  
+    /* Base line style */
+    .bar {
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+  
+    /* OPEN STATE ANIMATIONS */
+    .menu-toggle.open .top {
+      transform: rotate(45deg) translateY(11px);
+    }
+    .menu-toggle.open .middle {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    .menu-toggle.open .bottom {
+      transform: rotate(-45deg) translateY(-10.7px);
+    }
+  
+    /* Collapse nav by default */
+    .nav-links {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition:
+        max-height 0.4s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease;
+  
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      background: #000;
+      padding: 0 2rem; /* no vertical padding when closed */
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      z-index: 9999;
+    }
+  
+    /* Expand when open — make it scrollable with a right scrollbar */
+    .nav-links.open {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+  
+      /* viewport-based max height so the menu can scroll */
+      max-height: calc(100vh - 4.3rem);
+      max-height: calc(100dvh - 4.3rem); /* override with dynamic viewport if supported */
+  
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+  
+      padding: 0rem 2rem;
+      padding-right: 1.25rem; /* space so text doesn't sit under scrollbar */
+    }
+  
+    /* When header shrinks on scroll, allow a bit more space */
+    .header-container.scrolled .nav-links.open {
+      max-height: calc(100vh - 3.4rem);
+      max-height: calc(100dvh - 3.4rem);
+    }
+  
+    /* Optional: nicer/thinner scrollbar */
+    .nav-links.open {
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: rgba(255,255,255,0.45) transparent;
+      touch-action: pan-y;
+    }
+    .nav-links.open::-webkit-scrollbar {        /* WebKit */
+      width: 10px;
+    }
+    .nav-links.open::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.08);
+    }
+    .nav-links.open::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.45);
+      border-radius: 8px;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+    }
+    .nav-links.open::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.65);
+    }
+  
+    .nav-links ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-links li {
+      margin: 1rem 0;
+    }
+  
+    .nav-links a {
+      font-size: 1.15rem;
+      color: white;
+    }
+  
+    .nav-item .dropdown {
+      display: block !important;
+      position: static !important;   /* Makes it part of the flow */
+      padding-left: 1rem;
+      margin-top: 0rem;
+    }
+  
+    .dropdown a {
+      font-size: 1rem;
+      padding: 0 !important;
+    }
+  }
+  

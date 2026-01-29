@@ -1,0 +1,704 @@
+
+
+  
+  
+.home {
+    min-height: 100vh;
+  }
+  
+  
+  /* Top nav overlay */
+  .topnav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 50;
+    color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .brand {
+    font-size: 18px;
+    letter-spacing: 0.2px;
+    user-select: none;
+  }
+  
+  .brand-bold {
+    font-weight: 600;
+    margin-right: 6px;
+  }
+  
+  .brand-dot {
+    font-weight: 400;
+    opacity: 0.75;
+  }
+  
+  .topnav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+  }
+  
+  .topnav-links a {
+    color: rgba(0, 0, 0, 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+  }
+  
+  .topnav-links a:hover {
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+  }
+  
+  /* Dropdown */
+  .has-dropdown {
+    position: relative;
+  }
+  
+  .dropdown {
+    position: absolute;
+    top: 28px;
+    left: 0;
+    min-width: 180px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    backdrop-filter: blur(10px);
+  }
+  
+  .dropdown a {
+    display: block;
+    padding: 10px 10px;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+    color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .has-dropdown:hover .dropdown {
+    display: block;
+  }
+  
+  /* Hero background */
+  .hero {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    position: relative; /* REQUIRED for overlay */
+    background-attachment: fixed;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(245, 245, 245, 0.98) 0%,
+      rgba(235, 235, 235, 0.75) 32%,
+      rgba(220, 220, 220, 0.35) 52%,
+      rgba(210, 210, 210, 0.12) 65%,
+      rgba(210, 210, 210, 0.0) 85%
+    );
+    
+    
+      
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255,255,255,0.55),
+      rgba(255,255,255,0.15),
+      rgba(255,255,255,0.0)
+    );
+    z-index: 1;
+  }
+  
+  .hero-content {
+    max-width: 560px;
+    margin-top: 60px; /* keeps text below nav */
+    color: rgba(0, 0, 0, 0.838);
+    z-index: 2;
+  }
+  
+  .hero-content h1 {
+    font-size: 75px;
+    line-height: 1.05;
+    font-weight: 900;
+    margin: 0 0 18px 0;
+  }
+  
+  .hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0 0 18px 0;
+    max-width: 520px;
+  }
+  
+  .hero {
+    position: relative;
+  }
+  
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    /* your overlay styling (gradient, opacity, etc.) */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2; /* must be above overlay */
+  }
+  
+  /* CTA container */
+  .hero-cta-group{
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  /* CTA base */
+  .hero-cta-link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.159rem;
+    font-weight: 600;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    color: #000;            /* default text color */
+    border: none;           /* no border initially */
+    transform: scale(1);      /* baseline */
+    transition:
+      color 0.25s ease,
+      transform 0.25s ease;   /* smooth scale */
+  }
+
+  /* sweep layer (same for both) */
+  .hero-cta-link::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff92;    /* sweep color */
+    transform: translateX(-110%);
+    transition: transform 0.4s ease;
+    z-index: 1;
+  }
+
+  /* hover sweep */
+  .hero-cta-link:hover::before{
+    transform: translateX(0);
+    left: 0;
+  }
+
+  /* keep text above sweep */
+  .hero-cta-link span{
+    position: relative;
+    z-index: 1;
+  }
+
+/* hover: sweep + scale */
+.hero-cta-link:hover{
+  color: #000;
+  transform: scale(1.3);    /* scale up */
+}
+
+/* prevent overlap when scaling */
+.hero-cta-group{
+  align-items: center;
+}
+
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    opacity: 0.55;
+    z-index: 99999 !important;
+  }
+  
+  .mouse {
+    width: 22px;
+    height: 36px;
+    border: 1.6px solid rgb(0, 0, 0);
+    border-radius: 16px;
+    position: relative;
+    
+  }
+  
+  .mouse::after {
+    content: "";
+    width: 3px;
+    height: 6px;
+    border-radius: 3px;
+    background: rgb(0, 0, 0);
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: wheel 1.4s infinite;
+  }
+  
+  @keyframes wheel {
+    0% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+    70% { transform: translateX(-50%) translateY(10px); opacity: 0.15; }
+    100% { transform: translateX(-50%) translateY(10px); opacity: 0; }
+  }
+  
+  /* Mobile */
+  @media (max-width: 720px) {
+    .topnav {
+      padding: 18px 18px;
+    }
+  
+    .topnav-links {
+      gap: 14px;
+      font-size: 12px;
+    }
+  
+    .hero {
+      padding: 0 18px;
+      background-position: center;
+    }
+  
+    .hero-content h1 {
+      font-size: 38px;
+    }
+  }
+  
+  
+  /* ================================
+   SERVICES + PROCESS SECTION
+   ================================ */
+
+.services-process {
+  background: #2b2e34;
+  padding: 100px 48px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+
+.sp-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* LEFT CONTENT */
+
+.sp-left h2,
+.sp-right h2 {
+  font-size: 44px;
+  margin: 0 0 26px 0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.sp-left h3 {
+  font-size: 28px;
+  margin: 28px 0 10px 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+}
+
+.sp-left p {
+  margin: 0;
+  max-width: 520px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* RIGHT CONTENT */
+
+.sp-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-flow {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.35));
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 900px) {
+  .services-process {
+    padding: 70px 18px;
+  }
+
+  .sp-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .sp-right {
+    align-items: flex-start;
+  }
+
+  .sp-flow {
+    max-width: 100%;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Appointment section */
+.appointment {
+  padding: 120px 48px;
+  background: #ffffff;
+}
+
+.appointment-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.appointment-left h2 {
+  font-size: 52px;
+  line-height: 1.05;
+  margin: 0 0 22px 0;
+  color: #1f1f1f;
+}
+
+.appointment-left p {
+  margin: 0;
+  max-width: 560px;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #6b6b6b;
+}
+
+.appointment-btn {
+  margin-top: 36px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 14px 34px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.appointment-btn:hover {
+  opacity: 0.9;
+}
+
+.appointment-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.appointment-img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  border-radius: 22px;
+  object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .appointment {
+    padding: 80px 18px;
+  }
+
+  .appointment-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .appointment-right {
+    justify-content: flex-start;
+  }
+
+  .appointment-left h2 {
+    font-size: 38px;
+  }
+}
+
+
+/* Reviews (parallax background) */
+.reviews {
+  position: relative;
+  min-height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* parallax feel */
+  background-attachment: fixed;
+
+  display: flex;
+  align-items: center;
+  padding: 110px 48px;
+}
+
+.reviews-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.reviews-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px 56px;
+}
+
+.review-card {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.review-stars {
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: #f5a623;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  max-width: 520px;
+  margin: 0 auto 22px auto;
+  font-size: 18px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.review-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.review-name {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Mobile: disable fixed attachment (iOS bugs) */
+@media (max-width: 900px) {
+  .reviews {
+    padding: 80px 18px;
+    background-attachment: scroll;
+  }
+
+  .reviews-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .review-text {
+    max-width: 100%;
+  }
+}
+
+/* ================================
+   VALUES FLIP CARDS
+   ================================ */
+
+/* VALUES SECTION */
+.values {
+  padding: 120px 48px;
+  background: #ffffff;
+}
+
+.values-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.values-title {
+  font-size: 52px;
+  margin: 0 0 30px 0;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* FLIP CARD */
+.flip-card {
+  width: 100%;
+  height: 340px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1200px;
+  text-align: left;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 650ms ease;
+  border-radius: 18px;
+}
+
+/* ✅ This is the flip trigger */
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-visible .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.flip-card-front {
+  display: flex;
+  align-items: center;      /* vertical center */
+  justify-content: center;  /* horizontal center */
+  text-align: center;
+}
+
+
+.flip-card-front h3 {
+  margin: 0;
+  font-size: 34px;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.flip-card-back {
+  background: #2b2e34;
+  color: rgba(255, 255, 255, 0.9);
+  transform: rotateY(180deg);
+}
+
+.flip-card-back h3 {
+  margin: 0 0 12px 0;
+  font-size: 26px;
+}
+
+.flip-card-back p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .values {
+    padding: 80px 18px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flip-card {
+    height: 300px;
+  }
+}
