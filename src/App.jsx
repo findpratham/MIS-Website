@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Solutions from "./pages/Solutions";
 import SolarCalculator from "./components/SolarCalculator";
+import Blog from "./pages/Blog";
 // in your router
 import Contact from "./pages/Contact";
 
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/solar-calculator" element={<SolarCalculator />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
 
