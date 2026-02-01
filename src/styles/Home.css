@@ -631,7 +631,7 @@
 /* FLIP CARD */
 .flip-card {
   width: 100%;
-  height: 350px;
+  height: 380px;
   border: 0;
   padding: 0;
   background: transparent;
@@ -679,8 +679,8 @@
 }
 
 .flip-card-image {
-  width: 330px;
-  height: 150px;        /* image space */
+  width: 350px;
+  height: 170px;        /* image space */
   margin-bottom: 1rem;
   background-size: cover;
   background-position: center;
