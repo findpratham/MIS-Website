@@ -1,6 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import "../styles/Blog.css";
+
+// Image/Video Imports:
 import reviewsBg from "../assets/CoverPage.jpg";
+import heroVideo from "../assets/hero.mp4";
+import engineeringIcon from "../assets/Logo.jpg";
+import solarIcon from "../assets/Logo.jpg";
+import frontendIcon from "../assets/Logo.jpg";
+import permitIcon from "../assets/Logo.jpg";
+
+
 export default function Blog() {
   // Put your image in: /public/assets/BlogBackground.jpg
   // Then this works in Vite with no importing:
@@ -16,6 +25,7 @@ export default function Blog() {
         title: "Why we built MIS tools for faster solar design",
         date: "Jan 2026",
         tag: "Engineering",
+        image: engineeringIcon,
         readTime: "5 min",
         excerpt:
           "A quick look at how we reduce friction from intake to permit-ready drawings.",
@@ -25,6 +35,7 @@ export default function Blog() {
         title: "Residential vs commercial: what changes in the workflow",
         date: "Jan 2026",
         tag: "Solar",
+        image: solarIcon,
         readTime: "6 min",
         excerpt:
           "Same goal, different constraints. Here’s what we optimize for in each case.",
@@ -34,6 +45,7 @@ export default function Blog() {
         title: "Parallax + glass UI in React without heavy libraries",
         date: "Dec 2025",
         tag: "Frontend",
+        image: frontendIcon,
         readTime: "7 min",
         excerpt:
           "A clean pattern for background depth and readable content, built with simple CSS.",
@@ -43,6 +55,7 @@ export default function Blog() {
         title: "Common permit blockers and how to avoid them",
         date: "Dec 2025",
         tag: "Permitting",
+        image: permitIcon,
         readTime: "8 min",
         excerpt:
           "A checklist of issues we see often and what to collect upfront to save time.",
@@ -50,6 +63,8 @@ export default function Blog() {
     ],
     []
   );
+  
+  
 
   const tags = useMemo(() => {
     const set = new Set(posts.map((p) => p.tag));
@@ -101,6 +116,23 @@ export default function Blog() {
 
   return (
     <main className="blog" ref={parallaxRef}>
+
+    <section className="Blog-hero">
+        <video className="Blog-hero-video" src={heroVideo} autoPlay muted loop playsInline />
+        <div className="solutions-hero-overlay" />
+        <div className="solutions-hero-inner">
+          <h1>Notes, updates, and build logs
+          </h1>
+          <p>Clean write-ups on engineering, solar workflows, and frontend UI.</p>
+
+          {/* <div className="solutions-hero-actions">
+            <button onClick={() => scrollTo(residentialRef)}>Residential</button>
+            <button onClick={() => scrollTo(commercialRef)} className="secondary">Commercial</button>
+            <button onClick={() => scrollTo(futuristicRef)} className="secondary">Futuristic</button>
+          </div> */}
+        </div>
+      </section>
+
       {/* Parallax background (image set in JSX) */}
       <div className="blog-bg-white" />
       <div className="blog-glow" aria-hidden="true" />
@@ -108,11 +140,11 @@ export default function Blog() {
       {/* Glass overlay */}
       <div className="blog-glass">
         <header className="blog-hero">
-          <p className="blog-kicker">Blog</p>
-          <h1 className="blog-title">Notes, updates, and build logs</h1>
-          <p className="blog-subtitle">
+          {/* <p className="blog-kicker">Blog</p> */}
+          {/* <h1 className="blog-title">Notes, updates, and build logs</h1> */}
+          {/* <p className="blog-subtitle">
             Clean write-ups on engineering, solar workflows, and frontend UI.
-          </p>
+          </p> */}
 
           <div className="blog-controls">
             <div className="blog-searchWrap">
@@ -145,22 +177,25 @@ export default function Blog() {
         <section className="blog-grid" aria-label="Posts">
           {filtered.map((p) => (
             <article className="blog-card" key={p.id}>
-              <div className="blog-cardTop">
-                <span className="blog-pill">{p.tag}</span>
-                <span className="blog-meta">
-                  {p.date} • {p.readTime}
-                </span>
-              </div>
+                <div className="blog-cardImageWrap">
+                    <img src={p.image} alt={p.title} className="blog-cardImage" />
+                </div>
 
-              <h2 className="blog-cardTitle">{p.title}</h2>
-              <p className="blog-cardExcerpt">{p.excerpt}</p>
+                <div className="blog-cardContent">
+                    <div className="blog-cardTop">
+                    <span className="blog-cardTag">{p.tag}</span>
+                    <span className="blog-meta">{p.date} • {p.readTime}</span>
+                    </div>
 
-              <div className="blog-cardBottom">
-                <button type="button" className="blog-readBtn">
-                  Read →
-                </button>
-              </div>
+                    <h2 className="blog-cardTitle">{p.title}</h2>
+                    <p className="blog-cardExcerpt">{p.excerpt}</p>
+
+                    <div className="blog-cardBottom">
+                    <button type="button" className="blog-readBtn">Read →</button>
+                    </div>
+                </div>
             </article>
+         
           ))}
 
           {filtered.length === 0 && (

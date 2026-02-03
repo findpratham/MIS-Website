@@ -1,0 +1,279 @@
+.careersInput,
+.careersTextarea{
+  color: #0b0f1a; /* force dark text */
+}
+
+/* Make main not restrict full-width elements */
+.careersSimple{
+    min-height: 100vh;
+    padding: 64px 16px 90px;
+    background: #ffffff;
+  
+    /* IMPORTANT: if you had display:grid + place-items, remove it */
+    display: block;
+  }
+  
+  /* DROP-IN BANNER */
+  .careersBanner{
+    position: sticky;
+    top: 72px;               /* adjust based on your Header height */
+    z-index: 50;
+  
+    width: 100%;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+  
+    animation: careersDropIn 600ms ease-out both;
+  }
+  
+  @keyframes careersDropIn{
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  .careersBannerInner{
+    width: min(1100px, 100%);
+    border-radius: 999px;
+    padding: 12px 14px;
+  
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  
+    border: 1px solid rgba(11, 15, 26, 0.12);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  }
+  
+  .careersBannerDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #3b6cff;
+    box-shadow: 0 0 0 6px rgba(59,108,255,0.14);
+    flex: 0 0 auto;
+  }
+  
+  .careersBannerText{
+    font-size: 13px;
+    color: rgba(11, 15, 26, 0.78);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .careersBannerLink{
+    margin-left: auto;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0b0f1a;
+    text-decoration: none;
+  
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 15, 26, 0.12);
+    background: rgba(255,255,255,0.55);
+  }
+  
+  .careersBannerLink:hover{
+    filter: brightness(1.05);
+  }
+  
+  .careersBannerClose{
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 15, 26, 0.12);
+    background: rgba(255,255,255,0.55);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 0;
+    color: rgba(11, 15, 26, 0.7);
+  }
+  
+  @media (max-width: 520px){
+    .careersBanner{
+      top: 62px;
+    }
+    .careersBannerText{
+      white-space: normal;
+    }
+  }
+  
+
+
+.careersSimple{
+    min-height: 100vh;
+    display: grid;
+    place-items: start center;
+    padding: 64px 16px 90px;
+    background: #ffffff;
+  }
+  
+  /* =========================
+     FROSTED GLASS 3D CARD
+  ========================= */
+  .careersCard{
+    margin-top: 100px;
+    width: 1000px !important;
+    text-align: center;
+  
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  
+    border-radius: 22px;
+    padding: 56px 48px;
+  
+    border: 1px solid rgba(255, 255, 255, 0.55);
+  
+
+  
+    transform: translateY(-8px);
+    transition: transform 0.45s ease, box-shadow 0.45s ease;
+  }
+  
+  .careersCard:hover{
+    transform: translateY(-14px) scale(1.01);
+    box-shadow:
+      0 45px 80px rgba(0, 0, 0, 0.22),
+      0 18px 30px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
+  
+  /* =========================
+     TEXT
+  ========================= */
+  .careersTitle{
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
+    margin: 0 0 14px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #0b0f1a;
+  }
+  
+  .careersText{
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(11, 15, 26, 0.72);
+  }
+  
+  .careersTextSmall{
+    margin-top: 14px;
+  }
+  
+  /* =========================
+     HIGHLIGHT PILLS
+  ========================= */
+  .careersHighlights{
+    margin: 18px auto 6px;
+    max-width: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .careersPill{
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: rgba(11, 15, 26, 0.85);
+    border: 1px solid rgba(11, 15, 26, 0.12);
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+  }
+  
+  /* =========================
+     ROLE LINK
+  ========================= */
+  .careersRoleLink{
+    display: inline-block;
+    margin: 18px 0 6px;
+    font-size: 14px;
+    color: #3b6cff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
+  /* =========================
+     FORM
+  ========================= */
+  .careersForm{
+    width: min(520px, 100%);
+    margin: 24px auto 0;
+    text-align: left;
+  }
+  
+  .careersLabel{
+    display: block;
+    margin: 14px 0 8px;
+    font-size: 12px;
+    color: rgba(11, 15, 26, 0.75);
+  }
+  
+  .req{
+    color: #ff3b30;
+    margin-left: 3px;
+  }
+  
+  .careersInput,
+  .careersTextarea{
+    width: 100%;
+    border: 1px solid rgba(11, 15, 26, 0.18);
+    border-radius: 12px;
+    padding: 14px 14px;
+    font-size: 14px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+  }
+  
+  .careersTextarea{
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .careersInput:focus,
+  .careersTextarea:focus{
+    border-color: rgba(59, 108, 255, 0.55);
+    box-shadow: 0 0 0 4px rgba(59, 108, 255, 0.12);
+  }
+  
+  /* Submit pill */
+  .careersSubmit{
+    display: block;
+    margin: 22px auto 0;
+    width: min(240px, 80%);
+    height: 52px;
+    border: none;
+    border-radius: 999px;
+    background: #0b0f1a;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  }
+  
+  .careersSubmit:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 24px 44px rgba(0,0,0,0.22);
+    filter: brightness(1.05);
+  }
+  
+  .careersSubmit:active{
+    transform: translateY(0px) scale(0.99);
+  }
+  

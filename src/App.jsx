@@ -4,6 +4,8 @@ import Footer from "./components/Footer";
 import Solutions from "./pages/Solutions";
 import SolarCalculator from "./components/SolarCalculator";
 import Blog from "./pages/Blog";
+import Careers from "./pages/Careers";
+import Partnerships from "./pages/Partnerships";
 // in your router
 import Contact from "./pages/Contact";
 
@@ -24,6 +26,8 @@ export default function App() {
         <Route path="/solar-calculator" element={<SolarCalculator />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/partnerships" element={<Partnerships />} />
       </Routes>
       <Footer />
 

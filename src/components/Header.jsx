@@ -98,7 +98,7 @@ export default function Header() {
           </li>
 
           <li>
-            <NavLink to="/career" onClick={closeMenu}>
+            <NavLink to="/careers" onClick={closeMenu}>
               Career
             </NavLink>
           </li>

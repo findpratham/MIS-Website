@@ -72,6 +72,8 @@ useEffect(() => {
   };
 }, []);
 
+
+
   return (
     <main className="home">
       {/* Hero */}
@@ -311,11 +313,11 @@ useEffect(() => {
 
             <div className="values-grid">
               {/* Card 1 */}
-              <button type="button" className="flip-card" aria-label="Precision">
-                <div className="flip-card-inner">
-                <div className="flip-card-front">
+              <button type="button" className="Section-cards" aria-label="Precision">
+                <div className="Section-cards-inner">
+                <div className="Section-cards-front">
                   <div
-                    className="flip-card-image"
+                    className="Section-cards-image"
                     style={{ backgroundImage: `url(${reviewsBg})` }}
                   />
                   <h3>Consultation & Free Proposals</h3>
@@ -333,11 +335,11 @@ useEffect(() => {
               </button>
 
               {/* Card 2 */}
-              <button type="button" className="flip-card" aria-label="Innovation">
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
+              <button type="button" className="Section-cards" aria-label="Innovation">
+                <div className="Section-cards-inner">
+                  <div className="Section-cards-front">
                     <div
-                      className="flip-card-image"
+                      className="Section-cards-image"
                       style={{ backgroundImage: `url(${reviewsBg})` }}
                     />
                     <h3>Electrical Single Line Diagram</h3>
@@ -354,11 +356,11 @@ useEffect(() => {
 
 
               {/* Card 3 */}
-              <button type="button" className="flip-card" aria-label="Collaboration">
-                <div className="flip-card-inner">
-                  <div className="flip-card-front">
+              <button type="button" className="Section-cards" aria-label="Collaboration">
+                <div className="Section-cards-inner">
+                  <div className="Section-cards-front">
                     <div
-                      className="flip-card-image"
+                      className="Section-cards-image"
                       style={{ backgroundImage: `url(${reviewsBg})` }}
                     />
                     <h3>Elevation & Site Plans</h3>
