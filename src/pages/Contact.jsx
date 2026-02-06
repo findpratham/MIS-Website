@@ -133,6 +133,10 @@ export default function Contact() {
                 <p className="contact-fineprint">
                   By sending, you agree we can contact you about this request.
                 </p>
+                <p className="contact-fineprint">
+                If you have any questions or issues submitting this form, please email andrewyu@metricinnovative.com
+                or call us at 604-819-4048.
+                </p>
               </form>
             </section>
 

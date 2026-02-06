@@ -74,17 +74,17 @@ export default function Header() {
 
             <ul className="dropdown">
               <li>
-                <NavLink to="/solutions/residential" onClick={closeMenu}>
+                <NavLink to="/solutions" onClick={closeMenu}>
                   Residential Rooftop Solar Solutions
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/solutions/commercial" onClick={closeMenu}>
+                <NavLink to="/solutions" onClick={closeMenu}>
                   Commercial Rooftop Solar Solutions
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/solutions/futuristic" onClick={closeMenu}>
+                <NavLink to="/solutions" onClick={closeMenu}>
                   Futuristic Solar Solutions
                 </NavLink>
               </li>

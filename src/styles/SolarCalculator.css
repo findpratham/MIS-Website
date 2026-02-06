@@ -490,3 +490,407 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* ===============================
+   Dramatic + Futuristic checkbox
+   - Big hover lift + glow
+   - Sweep shimmer left -> right
+   - Strong focus ring
+================================ */
+
+/* Checkbox row (roof obstructions) */
+.sc-check{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.10);
+
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;         /* needed for sweep */
+  isolation: isolate;       /* keeps sweep behind text */
+
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* Futuristic sweep layer */
+/* Futuristic sweep layer (green) */
+.sc-check::before{
+  content:"";
+  position:absolute;
+  inset: -20% -30%;
+  z-index: 0;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 35%,
+    rgba(38,209,0,0.18) 48%,
+    rgba(255,255,255,0.70) 52%,
+    rgba(38,209,0,0.18) 56%,
+    rgba(255,255,255,0) 70%,
+    rgba(255,255,255,0) 100%
+  );
+
+  transform: translateX(-120%);
+  opacity: 0;
+  transition: transform 1000ms ease, opacity 220ms ease;
+  pointer-events: none;
+}
+
+
+/* Subtle inner shine */
+.sc-check::after{
+  content:"";
+  position:absolute;
+  inset: 1px;
+  border-radius: 13px;
+  z-index: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.65) 0%,
+    rgba(255,255,255,0.20) 55%,
+    rgba(255,255,255,0.05) 100%
+  );
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* Hover: lift + glow + sweep */
+.sc-check:hover{
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(11,92,255,0.35);
+  box-shadow:
+    -14px 18px 40px rgba(0,0,0,0.18),   /* drama */
+    0 0 0 1px rgba(11,92,255,0.14),     /* crisp edge */
+    0 18px 80px rgba(11,92,255,0.12);   /* blue aura */
+}
+
+.sc-check:hover::before{
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+/* Focus ring when keyboarding / clicking input */
+.sc-check:focus-within{
+  border-color: rgba(11,92,255,0.55);
+  box-shadow:
+    0 0 0 5px rgba(11,92,255,0.20),
+    -10px 14px 34px rgba(0,0,0,0.16);
+}
+
+/* Hide default checkbox and draw a custom one */
+.sc-check input{
+  position: relative;
+  z-index: 1;
+
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+
+  border: 1px solid rgba(0,0,0,0.24);
+  background: rgba(255,255,255,0.88);
+
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 0 0 18px;
+
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+/* Hover bump just on the box */
+.sc-check:hover input{
+  transform: scale(1.10);
+  box-shadow:
+    0 0 0 4px rgba(11,92,255,0.12),
+    0 10px 22px rgba(0,0,0,0.14);
+}
+
+/* Check mark */
+.sc-check input::after{
+  content: "";
+  width: 9px;
+  height: 5px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) scale(0);
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+
+/* Checked state */
+.sc-check input:checked{
+  background: rgba(11,92,255,0.92);
+  border-color: rgba(11,92,255,0.92);
+  box-shadow:
+    0 0 0 4px rgba(11,92,255,0.18),
+    0 14px 30px rgba(11,92,255,0.18);
+}
+
+.sc-check input:checked::after{
+  transform: rotate(-45deg) scale(1);
+}
+
+/* Label text */
+.sc-check span{
+  position: relative;
+  z-index: 1;
+
+  font-size: 0.98rem;
+  line-height: 1.2;
+  color: #111;
+}
+
+/* Optional: make the whole row feel clickable on mobile */
+@media (hover: none){
+  .sc-check:hover{
+    transform: none;
+    box-shadow: none;
+  }
+  .sc-check:hover::before{
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+}
+
+/* ===============================
+   Custom Dropdown (Eco Green)
+================================ */
+
+.sc-dd{
+  position: relative;
+  width: 100%;
+}
+
+/* Button that looks like your inputs */
+.sc-ddBtn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 14px;
+  padding: 12px 14px;
+
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.10);
+
+  backdrop-filter: blur(12px) saturate(125%);
+  -webkit-backdrop-filter: blur(12px) saturate(125%);
+
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+/* Eco sweep on hover */
+.sc-ddBtn::before{
+  content:"";
+  position:absolute;
+  inset: -30% -35%;
+  z-index: 0;
+
+  background: linear-gradient(
+    110deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 35%,
+    rgba(38,209,0,0.18) 48%,
+    rgba(255,255,255,0.75) 52%,
+    rgba(38,209,0,0.18) 56%,
+    rgba(255,255,255,0) 70%,
+    rgba(255,255,255,0) 100%
+  );
+
+  transform: translateX(-120%);
+  opacity: 0;
+  transition: transform 900ms ease, opacity 240ms ease;
+  pointer-events: none;
+}
+
+.sc-ddBtn:hover{
+  transform: translateY(-2px) scale(1.01);
+  border-color: rgba(38,209,0,0.35);
+  box-shadow:
+    -12px 16px 36px rgba(0,0,0,0.16),
+    0 0 0 1px rgba(38,209,0,0.14),
+    0 18px 70px rgba(38,209,0,0.10);
+}
+
+.sc-ddBtn:hover::before{
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+.sc-dd:focus-within .sc-ddBtn{
+  border-color: rgba(38,209,0,0.55);
+  box-shadow:
+    0 0 0 5px rgba(38,209,0,0.20),
+    -10px 14px 32px rgba(0,0,0,0.14);
+}
+
+/* Text + chevron */
+.sc-ddValue{
+  position: relative;
+  z-index: 1;
+  color: #111;
+  font-weight: 600;
+}
+
+.sc-ddValue.is-placeholder{
+  opacity: 0.65;
+  font-weight: 600;
+}
+
+.sc-ddChevron{
+  position: relative;
+  z-index: 1;
+  opacity: 0.85;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.sc-dd.is-open .sc-ddChevron{
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Menu */
+.sc-ddMenu{
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  border-radius: 16px;
+  padding: 8px;
+
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(0,0,0,0.10);
+
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+
+  box-shadow:
+    -18px 24px 60px rgba(0,0,0,0.22),
+    0 0 0 1px rgba(38,209,0,0.08);
+
+  max-height: 280px;
+  overflow: auto;
+
+  transform-origin: top;
+  animation: scDdIn 140ms ease;
+}
+
+@keyframes scDdIn{
+  from{ opacity: 0; transform: translateY(-6px) scale(0.99); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Items */
+.sc-ddItem{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 12px;
+  border-radius: 12px;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  cursor: pointer;
+  text-align: left;
+
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+/* Item eco sweep */
+.sc-ddItem::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(38,209,0,0) 0%,
+    rgba(38,209,0,0.10) 35%,
+    rgba(38,209,0,0.18) 50%,
+    rgba(38,209,0,0.10) 65%,
+    rgba(38,209,0,0) 100%
+  );
+
+  transform: translateX(-110%);
+  opacity: 0;
+  transition: transform 700ms ease, opacity 180ms ease;
+}
+
+.sc-ddItem:hover{
+  transform: translateY(-1px);
+  border-color: rgba(38,209,0,0.22);
+  background: rgba(255,255,255,0.35);
+}
+
+.sc-ddItem:hover::before{
+  opacity: 1;
+  transform: translateX(110%);
+}
+
+.sc-ddItemText{
+  position: relative;
+  z-index: 1;
+  color: #111;
+  font-weight: 600;
+}
+
+.sc-ddItemArrow{
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.sc-ddItem:hover .sc-ddItemArrow{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sc-ddItem.is-selected{
+  border-color: rgba(38,209,0,0.30);
+  background: rgba(38,209,0,0.10);
+}
+
+@media (hover: none){
+  .sc-ddBtn:hover,
+  .sc-ddItem:hover{
+    transform: none;
+  }
+  .sc-ddBtn:hover::before,
+  .sc-ddItem:hover::before{
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+}

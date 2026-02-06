@@ -1086,15 +1086,12 @@ box-shadow:
 
   transition: transform 0.35s ease, opacity 0.2s ease;
   z-index: 1;
-
-
 }
 
 /* default text visible */
 .sc-live-pillLabel.base{
   opacity: 1;
   transform: translateX(0);
-  
 }
 
 /* arrow hidden unless active */
@@ -1457,7 +1454,7 @@ box-shadow:
 }
 
 .Section-cards-image {
-  width: 350px;
+  width: 280px;
   height: 300px;
   margin-bottom: 1rem;
   background-size: cover;

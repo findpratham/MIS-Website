@@ -187,6 +187,68 @@ useEffect(() => {
         
       </section>
 
+      
+
+
+      <section className="why-mis">
+        <div className="why-mis-inner">
+          <h2 className="why-mis-title">Why MIS</h2>
+
+          <p className="why-mis-text">
+            MIS exists to remove guesswork from solar decisions.
+          </p>
+
+          <p className="why-mis-text">
+            Unlike traditional solar quotes that rely on rough assumptions or sales-driven
+            estimates, MIS is built on real engineering data, roof-specific analysis, and
+            system-level accuracy.
+          </p>
+
+          <p className="why-mis-text">
+            We combine professional solar design, 3D modeling, and data-backed calculations
+            to show what solar actually looks like on your property — before you commit to anything.
+          </p>
+
+          <p className="why-mis-text">
+            Our tools are designed to give homeowners, businesses, and solar partners clarity
+            upfront, reduce back-and-forth, and support better decisions with confidence.
+          </p>
+
+          <h3 className="why-mis-subtitle">
+            Solar Calculator – Plan Your Complete Solar Project
+          </h3>
+
+          <p className="why-mis-text">
+            Use our calculator to plan your complete solar project in minutes with accurate
+            system sizing, pricing, and performance estimates based on your property.
+          </p>
+
+          <NavLink to="/solar-calculator" className="why-mis-btn">
+            <span className="why-btn-label base">Check out our solar tool</span>
+            <span className="why-btn-label hover">→</span>
+          </NavLink>
+
+          <div className="why-mis-divider" />
+
+          <h3 className="why-mis-subtitle">Research &amp; Development at MIS</h3>
+
+          <p className="why-mis-text">
+            MIS Engineering specializes in research and development within the renewable energy
+            sector. By partnering with our organization, companies gain access to a multidisciplinary
+            engineering team capable of designing innovative prototypes that support the future
+            of sustainable energy.
+          </p>
+
+          <p className="why-mis-text">
+            With MIS, organizations can accelerate innovation in green energy technology and
+            bring prototypes to market.
+          </p>
+
+          
+        </div>
+      </section>
+
+
       <section className="values" ref={valuesRef} aria-label="Our Values">
         <div className="values-parallax" ref={valuesInnerRef}>
           <div className="values-inner">
@@ -249,136 +311,7 @@ useEffect(() => {
       </section>
 
 
-      <section className="why-mis">
-        <div className="why-mis-inner">
-          <h2 className="why-mis-title">Why MIS</h2>
-
-          <p className="why-mis-text">
-            MIS exists to remove guesswork from solar decisions.
-          </p>
-
-          <p className="why-mis-text">
-            Unlike traditional solar quotes that rely on rough assumptions or sales-driven
-            estimates, MIS is built on real engineering data, roof-specific analysis, and
-            system-level accuracy.
-          </p>
-
-          <p className="why-mis-text">
-            We combine professional solar design, 3D modeling, and data-backed calculations
-            to show what solar actually looks like on your property — before you commit to anything.
-          </p>
-
-          <p className="why-mis-text">
-            Our tools are designed to give homeowners, businesses, and solar partners clarity
-            upfront, reduce back-and-forth, and support better decisions with confidence.
-          </p>
-
-          <NavLink to="/solar-calculator" className="why-mis-btn">
-            <span className="why-btn-label base">Check out our solar tool</span>
-            <span className="why-btn-label hover">→</span>
-          </NavLink>
-
-          <div className="why-mis-divider" />
-
-          <h3 className="why-mis-subtitle">Research &amp; Development at MIS</h3>
-
-          <p className="why-mis-text">
-            MIS Engineering specializes in research and development within the renewable energy
-            sector. By partnering with our organization, companies gain access to a multidisciplinary
-            engineering team capable of designing innovative prototypes that support the future
-            of sustainable energy.
-          </p>
-
-          <p className="why-mis-text">
-            With MIS, organizations can accelerate innovation in green energy technology and
-            bring prototypes to market.
-          </p>
-
-          <h3 className="why-mis-subtitle">
-            Solar Calculator – Plan Your Complete Solar Project
-          </h3>
-
-          <p className="why-mis-text">
-            Use our calculator to plan your complete solar project in minutes with accurate
-            system sizing, pricing, and performance estimates based on your property.
-          </p>
-        </div>
-      </section>
-
-
-      <section className="values" ref={valuesRef} aria-label="Our Values">
-        <div className="values-parallax" ref={valuesInnerRef}>
-          <div className="values-inner">
-            <h2 className="values-title">Comprehensive Engineering, Design, and Procurement Solutions</h2>
-
-            <div className="values-grid">
-              {/* Card 1 */}
-              <button type="button" className="Section-cards" aria-label="Precision">
-                <div className="Section-cards-inner">
-                <div className="Section-cards-front">
-                  <div
-                    className="Section-cards-image"
-                    style={{ backgroundImage: `url(${reviewsBg})` }}
-                  />
-                  <h3>Consultation & Free Proposals</h3>
-                </div>
-
-                  <div className="flip-card-back">
-                    <h3>Consultation & Free Proposals</h3>
-                    <p>
-                    We provide free 3D solar proposals along with consulting services to guide clients through every stage of their solar project. From initial design to installation, we help ensure a smooth and informed process. Our proposals include shading analysis, energy production estimates, and ROI projections—clearly showing the long-term value of going solar.
-
-
-                    </p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Card 2 */}
-              <button type="button" className="Section-cards" aria-label="Innovation">
-                <div className="Section-cards-inner">
-                  <div className="Section-cards-front">
-                    <div
-                      className="Section-cards-image"
-                      style={{ backgroundImage: `url(${reviewsBg})` }}
-                    />
-                    <h3>Electrical Single Line Diagram</h3>
-                  </div>
-
-                  <div className="flip-card-back">
-                    <h3>Electrical Single Line Diagram</h3>
-                    <p>
-                    An Electrical Single Line Diagram (SLD) is a simplified schematic that shows the flow of electricity from the source to various loads. It highlights key components like inverters and breakers and is required for permitting, utility interconnection, and accessing solar rebates in most regions.
-                    </p>
-                  </div>
-                </div>
-              </button>
-
-
-              {/* Card 3 */}
-              <button type="button" className="Section-cards" aria-label="Collaboration">
-                <div className="Section-cards-inner">
-                  <div className="Section-cards-front">
-                    <div
-                      className="Section-cards-image"
-                      style={{ backgroundImage: `url(${reviewsBg})` }}
-                    />
-                    <h3>Elevation & Site Plans</h3>
-                  </div>
-
-                  <div className="flip-card-back">
-                    <h3>Elevation & Site Plans</h3>
-                    <p>
-                    Site plans and elevation drawings show the detailed layout of rooftop solar systems, including panel placement, mounting structures, and electrical components. They account for roof dimensions, shading, and orientation to ensure optimal design. These drawings are required for building permits, inspections, and help installers follow code-compliant, accurate installations—setting the foundation for a successful solar project.
-                    </p>
-                  </div>
-                </div>
-              </button>
-
-            </div>
-            </div>
-          </div>
-      </section>
+      
 
 
 
